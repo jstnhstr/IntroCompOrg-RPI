@@ -5,7 +5,7 @@
   Let w, x, y, z be bits of the integer.  The minterms that represent even numbers are:
 
   minterm|w|x|y|z
-  :-|-:-|-:-|-:-|-:-
+  :-|:-:|:-:|:-:|:-:
   m<sub>0</sub> = w' · x' · y' · z'|0|0|0|0
   |0|0|0|1
   m<sub>2</sub> = w' · x' · y · z'|0|0|1|0
@@ -25,9 +25,8 @@
 
   Using a K-map to visualize grouping simplifications:
 
-  wx | yz
-  -:-|-:-
-  |*00*|*01*|*11*|*10*
+  wx \ yz|*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *00*|1|||1
   *01*|1|||1
   *11*|1|||1
@@ -56,9 +55,8 @@
 
   On a K-map:
 
-  x | yz
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+  x \ yz|*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *0*|1|1||1
   *1*||1|1|1
 
@@ -75,9 +73,8 @@
 
   On a K-map:
 
-  x | yz
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+   x \ yz|*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *0*|0|0|0|
   *1*|0||0|
 
@@ -92,9 +89,8 @@
 
   On a K-Map:
 
-  x | yz
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+  x \ yz |*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *0*|1|1||1
   *1*|1||1|1
 
@@ -107,18 +103,16 @@
 
 ## 5. Show where each minterm is located with this Karnaugh map axis labeling using the notation of Figure 5.5.7
 
-  z | xy
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+  z \ xy |*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *0*|**m<sub>0</sub>**|**m<sub>2</sub>**|**m<sub>6</sub>**|**m<sub>4</sub>**
   *1*|**m<sub>1</sub>**|**m<sub>3</sub>**|**m<sub>7</sub>**|**m<sub>5</sub>**
 
 
 ## 6. Show where each minterm is located with this Karnaugh map axis labeling using the notation of Figure 5.5.7
 
-  y | xz
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+  y \ xz|*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *0*|**m<sub>0</sub>**|**m<sub>1</sub>**|**m<sub>5</sub>**|**m<sub>4</sub>**
   *1*|**m<sub>2</sub>**|**m<sub>3</sub>**|**m<sub>7</sub>**|**m<sub>6</sub>**
 
@@ -129,9 +123,8 @@
 
   On a K-Map:
 
-  wx | yz
-  -:- | -:-
-  |*00*|*01*|*11*|*10*
+  wx \ yz |*00*|*01*|*11*|*10*
+  :-:|:-:|:-:|:-:|:-:
   *00*|||1|1
   *01*||1|1|
   *11*||||
