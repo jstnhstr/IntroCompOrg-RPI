@@ -36,9 +36,17 @@ uIntToDec:
 
 	mov	r4, r0		@ caller's string pointer
 	add	r5, fp, tempString	@ temp string
-	mov	r6, r1		@ int to convert
+	movs	r6, r1		@ int to convert
 	mov	r7, 10		@ decimal constant
 
+	mov	r0, NUL		@ end of C string
+	strb	r0, [r5]
+	add	r5, r5, 1	@ move to char storage
+
+	mov	r0, zero	@ assume the int is 0
+	strb	r0, [r5]
+	movs	r6, r1		@ int to convert
+	beq	copyLoop	@ zero is special case
 convertLoop:
 	cmp	r6, 0		@ end of int?
 	beq	copy		@ yes, copy for caller

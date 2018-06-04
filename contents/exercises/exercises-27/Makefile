@@ -20,9 +20,6 @@ uIntToDec.o:
 incrementUInt2: incrementUInt.o writeStr.o readLn.o uDecToInt.o uIntToDec2.o newLine.o
 	gcc -o incrementUInt2 incrementUInt.o writeStr.o readLn.o uDecToInt.o uIntToDec2.o newLine.o
 
-uDecToInt2.o:
-	as -o uDecToInt2.o uDecToInt2.s
-
 newLine.o:
 	as -o newLine.o ../exercises-24/newLine.s
 
@@ -32,6 +29,12 @@ incrementSInt: incrementSInt.o writeStr.o readLn.o uDecToInt.o uIntToDec2.o newL
 incrementSInt.o:
 	as -o incrementSInt.o incrementSInt.s
 
+incrementSigned: incrementSigned.o writeStr.o getDecInt.o readLn.o uDecToInt.o putDecInt.o uIntToDec.o newLine.o
+	gcc -o incrementSigned incrementSigned.o writeStr.o getDecInt.o readLn.o uDecToInt.o putDecInt.o uIntToDec.o newLine.o
+
+incrementSigned.o:
+	as -o incrementSigned.o incrementSigned.s
+
 clean:
-	rm -f *.o incrementUInt incrementUInt2 incrementSInt
+	rm -f *.o incrementUInt incrementUInt2 incrementSInt incrementSigned
 

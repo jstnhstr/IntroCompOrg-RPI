@@ -11,7 +11,6 @@
 	.equ	NEWLINE,'\n'
 	.equ	NUL,0
 	.equ	STDIN,0
-	.equ	CAPACITY,64
 
 @ readLn
 	.text
@@ -19,22 +18,24 @@
 	.global	readLn
 	.type	readLn, %function
 readLn:
-	sub	sp, sp, 24
-	str	r4, [sp, 0]
-	str	r5, [sp, 4]
-	str	r6, [sp, 8]
-	str	fp, [sp, 12]
-	str	lr, [sp, 16]
-	add	fp, sp, 16
+	sub	sp, sp, 32
+	str	r1, [sp, 0]
+	str	r2, [sp, 4]
+	str	r3, [sp, 8]
+	str	r4, [sp, 12]
+	str	r5, [sp, 16]
+	str	r6, [sp, 20]
+	str	fp, [sp, 24]
+	str	lr, [sp, 28]
+	add	fp, sp, 28
 
 	mov	r4, r0		@ store address to heap memory where text string will be stored
 	mov	r5, 0		@ counter for number of chars read; returned to calling function
-	sub	r1, r1, 1	@ subtract one from max chars to allow inclusion of NUL character
-	mov	r6, r1		@ move integer of max chars allowed to r6 for use of r1 in read
+	sub	r2, r1, 1	@ subtract one from max chars to allow inclusion of NUL character; prepare for use as 3rd arg in read
+	mov	r6, r2		@ move integer of max chars allowed to r6 for use of r1 in read
 
 	mov	r0, STDIN
 	mov	r1, r4
-	mov	r2, CAPACITY
 	bl	read
 
 while:
@@ -51,11 +52,14 @@ done:
 	mov	r3, NUL
 	strb	r3, [r4]	@ remove newline input
 	mov	r0, r5
-	ldr	r4, [sp, 0]
-	ldr	r5, [sp, 4]
-	ldr	r6, [sp, 8]
-	ldr	fp, [sp, 12]
-	ldr	lr, [sp, 16]
-	add	sp, sp, 24
+	ldr	r1, [sp, 0]
+	ldr	r2, [sp, 4]
+	ldr	r3, [sp, 8]
+	ldr	r4, [sp, 12]
+	ldr	r5, [sp, 16]
+	ldr	r6, [sp, 20]
+	ldr	fp, [sp, 24]
+	ldr	lr, [sp, 28]
+	add	sp, sp, 32
 	bx	lr
 

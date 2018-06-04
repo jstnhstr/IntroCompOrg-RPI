@@ -9,7 +9,7 @@
 
 @ Source code constants
 	.equ	CAPACITY,6	@ total heap memory
-	.equ	MAX,5		@ max number of chars to read
+	.equ	MAX,15		@ max number of chars to read
 
 @ Constant program data
 	.section	.rodata
